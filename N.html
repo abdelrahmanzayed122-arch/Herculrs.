@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love You Nono ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#ffe6ee;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.container{
+    position:relative;
+}
+
+h1{
+    color:#ff4f8b;
+    margin-bottom:20px;
+}
+
+img{
+    width:260px;
+    margin-bottom:20px;
+}
+
+.buttons{
+    position:relative;
+    height:200px;
+}
+
+button{
+    border:none;
+    padding:12px 25px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:22px;
+    transition:.3s;
+}
+
+#yesBtn{
+    background:#28a745;
+    color:white;
+}
+
+#noBtn{
+    background:#dc3545;
+    color:white;
+    position:absolute;
+    margin-left:20px;
+}
+
+.heart{
+    position:absolute;
+    color:red;
+    animation:float 5s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>DO YOU LOVE ME? ❤️</h1>
+
+    <img src="cat.gif" alt="cat">
+
+    <div class="buttons">
+        <button id="yesBtn">YES</button>
+        <button id="noBtn">NO</button>
+    </div>
+
+</div>
+
+<script>
+
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+
+let yesSize = 22;
+
+const texts = [
+"NO",
+"Are you sure?",
+"Really?",
+"Think again!",
+"Please?",
+"Don't do this 😭",
+"Last chance!",
+"Seriously?",
+"Why? 😭",
+"Come on 😭",
+"Please say yes 🥺",
+"I'm begging you 😢",
+"Don't break my heart 💔",
+"Pretty please? ❤️",
+"Give it another thought 🤔",
+"You know you want to 😏",
+"Still no? 😭",
+"Be nice 🥹",
+"Just click YES 😆",
+"I'm waiting 👀",
+"Don't run away 😭",
+"You are making this hard 😭",
+"Are you absolutely sure?",
+"100% sure?",
+"Really really sure?",
+"Last last chance!",
+"Okay... maybe not 😭",
+"Pleaseeeee 🥺",
+"I bought flowers 🌹",
+"I brought chocolate 🍫",
+"Look at the cat 🐱",
+"The cat is sad 😿",
+"You're breaking my code 💻💔",
+"System error: Say YES 😆",
+"Warning ⚠️ Click YES",
+"Critical error 🚨",
+"Mission failed 😭",
+"Try again 😭",
+"Still thinking? 🤔",
+"Come on Nono ❤️",
+"Almost there 🥰",
+"Don't do this to me 😭",
+"Fine... I'll keep asking 😤",
+"YES is the correct answer 😎",
+"Click the green button 💚",
+"Trust me 😌",
+"Just one click 😍",
+"Love You Nono ❤️",
+"Okay... you win 😭"
+];
+
+noBtn.addEventListener("mouseover", () => {
+
+    const x = Math.random() * 300 - 150;
+    const y = Math.random() * 200 - 100;
+
+    noBtn.style.transform =
+      `translate(${x}px, ${y}px)`;
+
+    yesSize += 10;
+
+    yesBtn.style.fontSize = yesSize + "px";
+
+    count++;
+    noBtn.innerText = texts[count % texts.length];
+});
+yesBtn.addEventListener("click", ()=>{
+    window.location.href="love.html";
+});
+
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*25+15)+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },5000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
